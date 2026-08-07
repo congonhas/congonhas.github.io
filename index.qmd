@@ -17,6 +17,7 @@ been recognized with the Frisch Medal from the Econometric Society and the Aigne
 Award from the *Journal of Econometrics*.
 
 </div>
+<img src="headshot.jpg" width="118" height="177" alt="Flávio Cunha">
 :::
 
 ::: {.strip}
@@ -24,10 +25,17 @@ Award from the *Journal of Econometrics*.
 [CV (PDF)](cv.pdf)[·]{.sep}[Google Scholar](https://scholar.google.com/citations?user=M9MsticAAAAJ)[·]{.sep}[NBER](https://www.nber.org/people/flavio_cunha)[·]{.sep}[RePEc](https://ideas.repec.org/e/pcu47.html)
 :::
 
+<!--
+The homepage deliberately ends here. Research lives behind the Research tab.
+
+To bring back a curated list on the homepage, uncomment the three lines below.
+build_papers.py still generates _selected.html on every build, from the entries
+in papers.bib carrying `selected = {yes}`, so nothing else needs changing.
+
 <h2 class="sec">Selected research</h2>
-
 {{< include _selected.html >}}
-
 ::: {.more}
 [All research →](research.html)
 :::
+-->
+

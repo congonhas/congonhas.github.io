@@ -79,8 +79,8 @@ header.quarto-title-block{display:none}  /* the nav already says which page this
 .intro{display:flex; gap:1.9rem; align-items:flex-start}
 .intro p{margin:0 0 1rem}
 .intro p:first-child{margin-top:0}
-.intro img{flex:0 0 118px; width:118px; border-radius:2px}
-@media (max-width:560px){ .intro{flex-direction:column-reverse} .intro img{width:100px;flex:none} }
+.intro img{flex:0 0 118px; width:118px; height:auto; border-radius:2px}
+@media (max-width:560px){ .intro{flex-direction:column-reverse} .intro img{width:100px; flex:none} }
 
 .strip{
   margin:1.8rem 0 0; padding-top:1.1rem; border-top:1px solid var(--rule);

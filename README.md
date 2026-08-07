@@ -27,7 +27,7 @@ Standard BibTeX, plus:
 |---|---|
 | `category` | `wp` working paper, `pub` publication, `old` older working paper. Required. |
 | `topics` | Comma-separated: `early`, `beliefs`, `meas`, `ineq`, `edu`. Drives the filters. |
-| `selected` | `yes` puts it in **Selected research** on the homepage. |
+| `selected` | Marks a paper for the homepage list. That list is currently switched off; see the comment at the bottom of `index.qmd` to turn it back on. |
 | `status` | Free text tag, for example `Revise and resubmit, JPE`. |
 | `nber` | NBER id (`w35370`) or a full URL. |
 | `doi` | With or without the `https://doi.org/` prefix. |
@@ -83,13 +83,19 @@ its own.
 
 ## Running it locally (optional)
 
-You do not need to. But if you want to preview before publishing:
+You do not need to. But if you want to preview before publishing, run the
+generator once first:
 
 ```bash
+python3 build_papers.py
 quarto preview
 ```
 
-That opens the site in a browser and reloads as you edit.
+The first command only matters on a freshly cloned copy. Quarto resolves
+`{{< include >}}` directives while it is reading the project, which happens
+before its `pre-render` hook runs, so the generated lists have to exist before
+the first render. After that, `pre-render` keeps them current automatically and
+you can just run `quarto preview`.
 
 ---
 

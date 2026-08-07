@@ -17,7 +17,7 @@ been recognized with the Frisch Medal from the Econometric Society and the Aigne
 Award from the *Journal of Econometrics*.
 
 </div>
-<img src="headshot.jpg" width="118" height="177" alt="Flávio Cunha">
+<div class="shot"><img src="headshot.jpg" width="118" height="177" alt="Flávio Cunha"></div>
 :::
 
 ::: {.strip}

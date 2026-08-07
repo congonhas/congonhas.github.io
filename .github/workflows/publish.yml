@@ -28,6 +28,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Build the paper lists from papers.bib
+        run: python3 build_papers.py
+
       - name: Render
         run: quarto render
 

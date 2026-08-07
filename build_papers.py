@@ -32,6 +32,12 @@ TOPICS = [
 
 SECTIONS = [("wp", "Working papers"), ("pub", "Publications"), ("old", "Older working papers")]
 
+# Topic filter buttons and the "Download all BibTeX" link above the paper list.
+# Currently off: the research page is just the three lists. Set this to True to
+# bring both back; the JavaScript that drives the filters is still in
+# _footer.html and does nothing while there is no filter bar to click.
+SHOW_FILTERS = False
+
 
 # --------------------------------------------------------------------------
 # A small BibTeX reader. Handles @type{key, field = {value}, ...} with nested
@@ -245,13 +251,14 @@ def main():
 
     # --- research page -----------------------------------------------------
     parts = []
-    filters = ['<div class="filters">',
-               '<span class="tools"><a href="all-papers.bib">Download all BibTeX</a></span>',
-               '<button class="on" data-topic="all">All</button>']
-    for key, label in TOPICS:
-        filters.append(f'<button data-topic="t-{key}">{label}</button>')
-    filters.append("</div>")
-    parts.append("\n".join(filters))
+    if SHOW_FILTERS:
+        filters = ['<div class="filters">',
+                   '<span class="tools"><a href="all-papers.bib">Download all BibTeX</a></span>',
+                   '<button class="on" data-topic="all">All</button>']
+        for key, label in TOPICS:
+            filters.append(f'<button data-topic="t-{key}">{label}</button>')
+        filters.append("</div>")
+        parts.append("\n".join(filters))
 
     uid = 0
     for cat, heading in SECTIONS:

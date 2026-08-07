@@ -105,6 +105,9 @@ h2.sec{
   color:var(--muted); margin:2.9rem 0 1.4rem; padding-bottom:.45rem;
   border-bottom:1px solid var(--rule);
 }
+/* The first heading on a page should sit the same distance below the nav as
+   body text does on the homepage, so it does not get an extra 2.9rem on top. */
+main > h2.sec:first-of-type{margin-top:0}
 
 /* --- paper entries ------------------------------------------------------ */
 .paper{margin:0 0 1.75rem}

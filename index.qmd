@@ -6,15 +6,9 @@ pagetitle: "Flávio Cunha"
 ::: {.intro}
 <div>
 
-I am the Ervin K. Zingler Chair of Economics at Rice University, where I chair the
-Department of Economics and direct the Center for Economic Mobility at the Kinder
-Institute for Urban Research.
+I am the Ervin K. Zingler Chair of Economics at Rice University, where I chair the Department of Economics and direct the Center for Economic Mobility at the Kinder Institute for Urban Research.
 
-I work on labor economics, and specifically on how human capital is formed over the
-life cycle: what parents believe about their children's development, how those
-beliefs shape investment, and what early interventions actually change. My work has
-been recognized with the Frisch Medal from the Econometric Society and the Aigner
-Award from the *Journal of Econometrics*.
+I work on how human capital is formed over the life cycle: what parents believe about how children develop, how those beliefs shape investment, and what early interventions actually change. My work has been recognized with the Frisch Medal from the Econometric Society and the Aigner Award from the Journal of Econometrics.
 
 </div>
 <div class="shot"><img src="headshot.jpg" width="118" height="177" alt="Flávio Cunha"></div>

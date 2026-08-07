@@ -1,0 +1,172 @@
+/* ==========================================================================
+   flaviocunha.com
+   One column, one serif, one accent. Nothing here is decorative.
+
+   Colour is set by data-bg on <html>, written by the small script in
+   _footer.html: white by day, dark gray from 19:00 to 07:00 in the visitor's
+   own time zone, with an override in the header.
+   ========================================================================== */
+
+/* --- Bitstream Charter, self-hosted so the site looks the same everywhere ---
+   (c) 1989-1992 Bitstream Inc. Redistribution permitted; BITSTREAM CHARTER is
+   a registered trademark of Bitstream Inc. See fonts/LICENSE.txt.
+   No local() fallback on purpose: a visitor's own copy may differ. */
+@font-face{font-family:'Charter';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/charter_regular.woff2') format('woff2')}
+@font-face{font-family:'Charter';font-style:italic;font-weight:400;font-display:swap;
+  src:url('fonts/charter_italic.woff2') format('woff2')}
+@font-face{font-family:'Charter';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/charter_bold.woff2') format('woff2')}
+@font-face{font-family:'Charter';font-style:italic;font-weight:700;font-display:swap;
+  src:url('fonts/charter_bold_italic.woff2') format('woff2')}
+
+:root{
+  --bg:#ffffff;
+  --fg:#121212;
+  --muted:#666663;
+  --rule:#e6e6e4;
+  --accent:#00205B;
+  --chip:#f3f3f1;
+  --measure:44rem;
+}
+html[data-bg="dark"]{
+  --bg:#2a2c2e;
+  --fg:#e9eaea;
+  --muted:#a2a5a6;
+  --rule:#3d4043;
+  --accent:#a9c4ef;
+  --chip:#34373a;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:"Charter",Cambria,Georgia,serif;
+  font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--measure); margin:0 auto; padding:0 1.5rem}
+
+/* --- header ------------------------------------------------------------- */
+header{padding:3.2rem 0 0}
+.name{font-size:1.35rem; font-weight:600; letter-spacing:-.01em; margin:0}
+.name a{color:inherit; text-decoration:none}
+nav{margin:1.1rem 0 0; padding-bottom:1.1rem; border-bottom:1px solid var(--rule)}
+nav ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:1.4rem}
+nav a{
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:.83rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); text-decoration:none; cursor:pointer; padding-bottom:2px;
+}
+nav a:hover{color:var(--fg)}
+nav a.on{color:var(--fg); border-bottom:1.5px solid var(--accent)}
+.ext{font-size:.72em; opacity:.6; letter-spacing:0}
+.lbl-short{display:none}
+.themeslot{margin-left:auto}
+.themeslot a{font-size:.95rem; line-height:1; opacity:.55}
+.themeslot a:hover{opacity:1}
+@media (max-width:620px){
+  .lbl-long{display:none} .lbl-short{display:inline} .themeslot{margin-left:0}
+}
+
+main{padding:2.6rem 0 4rem}
+#title-block-header,
+main > h1.title,
+header.quarto-title-block{display:none}  /* the nav already says which page this is */
+
+/* --- homepage intro ----------------------------------------------------- */
+.intro{display:flex; gap:1.9rem; align-items:flex-start}
+.intro p{margin:0 0 1rem}
+.intro p:first-child{margin-top:0}
+.intro img{flex:0 0 118px; width:118px; border-radius:2px}
+@media (max-width:560px){ .intro{flex-direction:column-reverse} .intro img{width:100px;flex:none} }
+
+.strip{
+  margin:1.8rem 0 0; padding-top:1.1rem; border-top:1px solid var(--rule);
+  font-size:.86rem; color:var(--muted);
+}
+.strip a{color:var(--fg); text-decoration:none; border-bottom:1px solid var(--rule)}
+.strip a:hover{border-color:var(--accent)}
+.strip .sep{margin:0 .5rem; opacity:.45}
+
+/* --- section headings --------------------------------------------------- */
+h2.sec{
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:.78rem; letter-spacing:.11em; text-transform:uppercase; font-weight:600;
+  color:var(--muted); margin:2.9rem 0 1.4rem; padding-bottom:.45rem;
+  border-bottom:1px solid var(--rule);
+}
+
+/* --- paper entries ------------------------------------------------------ */
+.paper{margin:0 0 1.75rem}
+.paper.hide{display:none}
+.paper .t{font-weight:600; line-height:1.42; margin:0}
+.paper .t a{
+  color:var(--fg); text-decoration:underline; text-decoration-color:var(--accent);
+  text-decoration-thickness:1px; text-underline-offset:3px;
+}
+.paper .t a:hover{color:var(--accent)}
+.paper .m{margin:.2rem 0 0; font-size:.93rem; color:var(--muted); font-style:italic}
+.badges{
+  margin:.45rem 0 0;
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+}
+.badges a,.badges button{
+  display:inline-block; margin:0 .38rem .3rem 0; padding:.14rem .5rem;
+  background:var(--chip); color:var(--muted); border:0; border-radius:2px;
+  text-decoration:none; letter-spacing:.02em; cursor:pointer;
+  font-family:inherit; font-size:inherit;
+}
+.badges a:hover,.badges button:hover{color:var(--fg)}
+.badges .status{
+  display:inline-block; margin-right:.38rem; color:var(--accent);
+  background:transparent; padding:.14rem 0;
+}
+.abs{
+  display:none; margin:.7rem 0 0; padding:0 0 0 .95rem;
+  border-left:2px solid var(--rule); font-size:.94rem; color:var(--muted);
+}
+.abs.on{display:block}
+.abs p{margin:0}
+
+/* --- filters ------------------------------------------------------------ */
+.filters{
+  margin:0 0 .6rem;
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:.76rem;
+}
+.filters button{
+  margin:0 .35rem .35rem 0; padding:.2rem .58rem; border:1px solid var(--rule);
+  background:transparent; color:var(--muted); border-radius:99px; cursor:pointer;
+  font-family:inherit; font-size:inherit;
+}
+.filters button:hover{color:var(--fg)}
+.filters button.on{background:var(--fg); color:var(--bg); border-color:var(--fg)}
+.tools{float:right}
+.tools a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--rule)}
+.tools a:hover{color:var(--fg)}
+h2.sec.empty, .paper-group.empty{display:none}
+
+/* --- misc --------------------------------------------------------------- */
+.lede{color:var(--muted); font-size:.95rem; margin:0 0 1.9rem}
+.more{font-family:ui-sans-serif,sans-serif; font-size:.82rem; margin-top:2rem}
+.more a{color:var(--accent); text-decoration:none}
+.item{margin:0 0 1.7rem}
+.item h3{margin:0 0 .25rem; font-size:1.02rem; font-weight:600}
+.item p{margin:0; color:var(--muted); font-size:.95rem}
+
+footer{
+  border-top:1px solid var(--rule); padding:1.5rem 0 4rem; font-size:.8rem;
+  color:var(--muted);
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+footer a{color:var(--muted)}
+
+/* Anyone printing a page wants the paper list, not the furniture. */
+@media print{
+  nav,.filters,.themeslot,footer{display:none}
+  .abs{display:block !important}
+  body{background:#fff; color:#000; font-size:11pt}
+}

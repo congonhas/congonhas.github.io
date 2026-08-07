@@ -1,0 +1,20 @@
+<meta name="author" content="Flávio Cunha">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a2c2e" media="(prefers-color-scheme: dark)">
+<link rel="me" href="https://scholar.google.com/citations?user=M9MsticAAAAJ">
+<script>
+/* Set the theme before the page paints, so a night visitor never sees a
+   white flash. The full logic is in the footer script; this is only the
+   first paint. */
+(function () {
+  try {
+    var m = sessionStorage.getItem('theme') || 'auto', t = m;
+    if (m === 'auto') {
+      var h = new Date().getHours();
+      var os = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      t = (os || h >= 19 || h < 7) ? 'dark' : 'white';
+    }
+    document.documentElement.setAttribute('data-bg', t);
+  } catch (e) {}
+})();
+</script>

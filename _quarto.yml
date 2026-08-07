@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: _site
+  # Runs before every render, so the site always matches papers.bib.
+  pre-render: build_papers.py
+  resources:
+    - bibtex/
+    - all-papers.bib
+    - fonts/
+    - papers/
+    - cv.pdf
+    # Note: no CNAME here yet. Adding a CNAME file tells GitHub Pages to serve
+    # this site at www.flaviocunha.com, so it goes in only on launch day, once
+    # DNS is ready. Until then the site lives at congonhas.github.io.
+
+website:
+  title: "Flávio Cunha"
+  description: "Flávio Cunha, Ervin K. Zingler Chair of Economics at Rice University. Research on labor economics and human capital formation over the life cycle."
+  site-url: https://www.flaviocunha.com
+  favicon: favicon.svg
+  open-graph: true
+  twitter-card: false
+
+format:
+  html:
+    # No Bootstrap. The whole design is styles.css, which is under 300 lines
+    # and does exactly what the approved prototype did, nothing more.
+    theme: none
+    css: styles.css
+    include-in-header: _head.html
+    include-before-body: _header.html
+    include-after-body: _footer.html
+    toc: false
+    anchor-sections: false
+    link-external-newwindow: true
+    title-block-style: none

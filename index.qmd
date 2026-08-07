@@ -1,0 +1,33 @@
+---
+title: "Flávio Cunha, Professor of Economics, Rice University"
+pagetitle: "Flávio Cunha"
+---
+
+::: {.intro}
+<div>
+
+I am the Ervin K. Zingler Chair of Economics at Rice University, where I chair the
+Department of Economics and direct the Center for Economic Mobility at the Kinder
+Institute for Urban Research.
+
+I work on labor economics, and specifically on how human capital is formed over the
+life cycle: what parents believe about their children's development, how those
+beliefs shape investment, and what early interventions actually change. My work has
+been recognized with the Frisch Medal from the Econometric Society and the Aigner
+Award from the *Journal of Econometrics*.
+
+</div>
+:::
+
+::: {.strip}
+[Flavio.Cunha@rice.edu](mailto:Flavio.Cunha@rice.edu)[·]{.sep}Kraft Hall 407[·]{.sep}713.348.3312\
+[CV (PDF)](cv.pdf)[·]{.sep}[Google Scholar](https://scholar.google.com/citations?user=M9MsticAAAAJ)[·]{.sep}[NBER](https://www.nber.org/people/flavio_cunha)[·]{.sep}[RePEc](https://ideas.repec.org/e/pcu47.html)
+:::
+
+<h2 class="sec">Selected research</h2>
+
+{{< include _selected.html >}}
+
+::: {.more}
+[All research →](research.html)
+:::

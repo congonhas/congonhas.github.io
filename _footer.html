@@ -1,0 +1,101 @@
+<footer>
+  <a href="mailto:Flavio.Cunha@rice.edu">Flavio.Cunha@rice.edu</a> &middot;
+  Department of Economics, Rice University, Kraft Hall 407 &middot;
+  <a href="https://scholar.google.com/citations?user=M9MsticAAAAJ" target="_blank" rel="noopener">Scholar</a> &middot;
+  <a href="https://www.nber.org/people/flavio_cunha" target="_blank" rel="noopener">NBER</a> &middot;
+  <a href="https://ideas.repec.org/e/pcu47.html" target="_blank" rel="noopener">RePEc</a>
+</footer>
+</div><!-- /.wrap -->
+
+<script>
+/* ---------------------------------------------------------------------------
+   Everything the site does at runtime. About sixty lines, no libraries.
+   --------------------------------------------------------------------------- */
+(function () {
+
+  /* --- theme ---------------------------------------------------------------
+     Dark gray between 19:00 and 07:00 in the VISITOR's local time. If their
+     operating system asks for dark mode, that wins at any hour. The header
+     control overrides for the visit, and the choice is remembered across
+     pages so navigating does not flip the theme back.
+     ------------------------------------------------------------------------ */
+  var DARK_FROM = 19, DARK_UNTIL = 7;
+  var mode = 'auto';
+  try { mode = sessionStorage.getItem('theme') || 'auto'; } catch (e) {}
+
+  function osDark() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function auto() {
+    var h = new Date().getHours();
+    return (osDark() || h >= DARK_FROM || h < DARK_UNTIL) ? 'dark' : 'white';
+  }
+  function apply() {
+    var t = (mode === 'auto') ? auto() : mode;
+    document.documentElement.setAttribute('data-bg', t);
+    var b = document.getElementById('themebtn');
+    if (b) {
+      b.innerHTML = (t === 'dark') ? '&#9790;' : '&#9728;';
+      b.title = (mode === 'auto')
+        ? 'Following your local time. Click to override.'
+        : 'Set to ' + t + '. Click to return to automatic.';
+    }
+  }
+  function setMode(m) {
+    mode = m;
+    try { sessionStorage.setItem('theme', m); } catch (e) {}
+    apply();
+  }
+  apply();
+  var tb = document.getElementById('themebtn');
+  if (tb) tb.addEventListener('click', function () {
+    setMode(mode === 'auto' ? (auto() === 'dark' ? 'white' : 'dark') : 'auto');
+  });
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+  }
+  setInterval(function () { if (mode === 'auto') apply(); }, 600000);
+
+  /* --- mark the current page in the nav ---------------------------------- */
+  var page = (location.pathname.split('/').pop() || 'index.html').replace('.html', '');
+  if (!page) page = 'index';
+  var cur = document.querySelector('nav a[data-nav="' + page + '"]');
+  if (cur) cur.classList.add('on');
+
+  /* --- expandable abstracts ---------------------------------------------- */
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.abs-toggle') : null;
+    if (!btn) return;
+    var box = document.getElementById(btn.getAttribute('data-target'));
+    if (!box) return;
+    var open = box.classList.toggle('on');
+    btn.textContent = open ? 'Hide abstract' : 'Show abstract';
+  });
+
+  /* --- topic filters ------------------------------------------------------
+     Hides non-matching papers, then hides any section that has emptied out so
+     a filtered view never shows a heading with nothing under it.
+     ------------------------------------------------------------------------ */
+  var filters = document.querySelector('.filters');
+  if (filters) {
+    filters.addEventListener('click', function (ev) {
+      var btn = ev.target.closest ? ev.target.closest('button[data-topic]') : null;
+      if (!btn) return;
+      var topic = btn.getAttribute('data-topic');
+      filters.querySelectorAll('button[data-topic]').forEach(function (b) {
+        b.classList.toggle('on', b === btn);
+      });
+      document.querySelectorAll('.paper').forEach(function (p) {
+        p.classList.toggle('hide', topic !== 'all' && !p.classList.contains(topic));
+      });
+      document.querySelectorAll('.paper-group').forEach(function (g) {
+        var any = g.querySelector('.paper:not(.hide)');
+        g.classList.toggle('empty', !any);
+        var head = g.previousElementSibling;
+        if (head && head.classList.contains('sec')) head.classList.toggle('empty', !any);
+      });
+    });
+  }
+})();
+</script>

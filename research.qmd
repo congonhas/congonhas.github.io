@@ -1,0 +1,10 @@
+---
+title: "Research"
+pagetitle: "Research | Flávio Cunha"
+---
+
+::: {.lede}
+Working papers first, then publications, each newest first. Titles link to the full text.
+:::
+
+{{< include _research.html >}}

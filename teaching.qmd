@@ -1,0 +1,26 @@
+---
+title: "Teaching"
+pagetitle: "Teaching | Flávio Cunha"
+---
+
+::: {.item}
+### ECON 421. Quantitative Methods and Labs
+
+Quantitative methods for evaluating public policy and social programs: implementation
+quality, impact, and cost-benefit analysis.
+:::
+
+::: {.item}
+### ECON 462. Economics of Human Capital
+
+How human capital shapes economic growth and mobility, and the econometric techniques
+used to study it.
+:::
+
+::: {.item}
+### ECON 515. Labor Economics (graduate)
+
+Labor markets and individual decision-making: wage determination, labor supply and
+demand, human capital investment, unemployment, and the distribution of income. Theory
+and empirical method, aimed at independent research.
+:::

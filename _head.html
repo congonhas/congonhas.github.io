@@ -18,3 +18,44 @@
   } catch (e) {}
 })();
 </script>
+
+<!-- ---------------------------------------------------------------------------
+     GoatCounter. Cookieless, so no consent banner is required.
+     Dashboard: https://flaviocunha.goatcounter.com
+     --------------------------------------------------------------------------- -->
+<script data-goatcounter="https://flaviocunha.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<script>
+/* Paper-link events.
+
+   The script above counts page views. A PDF cannot run a script, and a DOI or
+   NBER link leaves the site entirely, so the thing you most want to know, which
+   papers people actually open, would otherwise be invisible.
+
+   This records one event per paper link, labelled with the paper's own title,
+   so the dashboard reads as a list of papers rather than a list of URLs. It
+   fires for the title link and for the PDF, Journal and NBER badges alike,
+   since all three mean the same thing: someone went to read it. BibTeX
+   downloads are not counted. */
+document.addEventListener('click', function (ev) {
+  var a = ev.target && ev.target.closest && ev.target.closest('a[href]');
+  if (!a) return;
+  if (!window.goatcounter || !window.goatcounter.count) return;
+
+  var href = a.getAttribute('href') || '';
+  var isPdf = /\.pdf($|[?#])/i.test(href);
+  var isPaperLink = isPdf || /doi\.org|nber\.org\/papers/i.test(href);
+  if (!isPaperLink) return;
+
+  var entry = a.closest('.paper');
+  var heading = entry && entry.querySelector('.t');
+  var label = heading ? heading.textContent.trim() : href;
+
+  window.goatcounter.count({
+    path:  (isPdf ? 'pdf: ' : 'link: ') + label.slice(0, 120),
+    title: href,
+    event: true
+  });
+});
+</script>

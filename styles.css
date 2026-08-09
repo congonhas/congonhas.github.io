@@ -78,17 +78,17 @@ main{padding:2.6rem 0 4rem}
 main > h1.title,
 header.quarto-title-block{display:none}  /* the nav already says which page this is */
 
-/* --- homepage intro ----------------------------------------------------- */
-.intro{display:flex; gap:1.9rem; align-items:flex-start}
-.intro p{margin:0 0 1rem}
-.intro p:first-child{margin-top:0}
-.intro .shot{flex:0 0 118px}
-.intro .shot img{display:block; width:118px; height:auto; border-radius:2px}
-@media (max-width:560px){
-  .intro{flex-direction:column-reverse}
-  .intro .shot{flex:none}
-  .intro .shot img{width:100px}
-}
+/* --- body copy -----------------------------------------------------------
+   No photograph on the homepage, by choice, so the bio gets the full measure
+   and the page is a single column of prose.
+
+   These margins are not decorative. main has 2.6rem of padding above the first
+   paragraph, and .strip below adds 1.6rem to the 1rem a paragraph carries, so
+   both gaps come to 2.6rem and the text sits evenly between the two rules.
+   Leaving the browser's default margins in place puts an extra 17px on top and
+   the block visibly drifts downward. */
+main > p{margin:0 0 1rem}
+main > p:first-of-type{margin-top:0}
 
 .strip{
   margin:1.6rem 0 0; padding-top:1.1rem; border-top:1px solid var(--rule);

@@ -160,6 +160,45 @@ main > h2.sec:first-of-type{margin-top:0}
 .tools a:hover{color:var(--fg)}
 h2.sec.empty, .paper-group.empty{display:none}
 
+/* --- long-form essay -----------------------------------------------------
+   The one place on the site with sustained prose rather than lists. Section
+   headings here are sentence-case serif, not the small uppercase labels used
+   elsewhere, because those work as signposts above a list and read as shouting
+   above a paragraph. */
+.essay-meta{
+  font-size:.86rem; color:var(--muted); margin:0 0 2rem;
+  padding-bottom:1.2rem; border-bottom:1px solid var(--rule);
+}
+.essay-meta p{margin:0 0 .4rem}
+.essay-meta p:last-child{margin-bottom:0}
+.essay-meta a{color:var(--fg)}
+
+.essay-toc{
+  margin:0 0 2.6rem; padding:0 0 0 .2rem;
+  font-size:.92rem; color:var(--muted);
+}
+.essay-toc ol{margin:0; padding-left:1.4rem}
+.essay-toc li{margin:0 0 .28rem}
+.essay-toc a{
+  color:var(--fg); text-decoration:underline;
+  text-decoration-color:var(--rule); text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
+.essay-toc a:hover{text-decoration-color:var(--accent)}
+
+.essay p{margin:0 0 1.15rem}
+.essay h2{
+  font-family:inherit; font-size:1.08rem; font-weight:600; line-height:1.4;
+  letter-spacing:0; text-transform:none; color:var(--fg);
+  margin:2.8rem 0 .9rem; padding:0; border:0;
+}
+.essay h3{
+  font-size:1rem; font-weight:600; font-style:italic;
+  margin:2rem 0 .8rem;
+}
+/* Deep-linked sections should not land flush against the top of the window. */
+.essay h2{scroll-margin-top:1.5rem}
+
 /* --- misc --------------------------------------------------------------- */
 .lede{color:var(--muted); font-size:.95rem; margin:0 0 1.9rem}
 .more{font-family:ui-sans-serif,sans-serif; font-size:.82rem; margin-top:2rem}

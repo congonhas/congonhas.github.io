@@ -29,6 +29,15 @@ Flávio Cunha, Rice University · August 2026 ·
 The evaluation described in section 5 is reported in
 [Beliefs, Attention, and Investments in Early Childhood](https://www.nber.org/papers/w35150){target="_blank" rel="noopener"},
 NBER Working Paper 35150.
+
+**Acknowledgments.** The work with Alief ISD described in this essay was made
+possible by support from several foundations over many years. The Smith
+Richardson Foundation supported the randomized controlled trial. The Powell
+Foundation, the Brown Foundation, the Samuels Family Foundation, and the
+Episcopal Health Foundation supported implementation of the program and the work
+required to build Alief's capacity to deliver it. I am grateful for their support
+and for the patience that made this work possible. The views and interpretations
+expressed in this essay are my own.
 :::
 
 ::: {.essay-toc}

@@ -169,7 +169,7 @@ h2.sec.empty, .paper-group.empty{display:none}
   font-size:.86rem; color:var(--muted); margin:0 0 2rem;
   padding-bottom:1.2rem; border-bottom:1px solid var(--rule);
 }
-.essay-meta p{margin:0 0 .4rem}
+.essay-meta p{margin:0 0 .55rem}
 .essay-meta p:last-child{margin-bottom:0}
 .essay-meta a{color:var(--fg)}
 

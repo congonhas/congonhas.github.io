@@ -160,6 +160,40 @@ main > h2.sec:first-of-type{margin-top:0}
 .tools a:hover{color:var(--fg)}
 h2.sec.empty, .paper-group.empty{display:none}
 
+/* --- hub entries ---------------------------------------------------------
+   The Center page lists the essays rather than being one. Each entry is a
+   title, a line of apparatus saying when it was written and who it is for,
+   and a short description. The audience line matters: the two essays are
+   pitched very differently and a reader should be able to tell before
+   clicking. */
+.entry{margin:0 0 2.1rem}
+.entry p{margin:0 0 .35rem}
+.entry p:first-child a{
+  font-size:1.08rem; font-weight:600; color:var(--fg);
+  text-decoration:underline; text-decoration-color:var(--accent);
+  text-decoration-thickness:1px; text-underline-offset:3px;
+}
+.entry p:first-child a:hover{color:var(--accent)}
+.entry p:nth-child(2){
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:.76rem; letter-spacing:.02em; color:var(--muted);
+  margin-bottom:.5rem;
+}
+.entry p:nth-child(3){color:var(--muted); font-size:.95rem}
+/* The PDF chip is the fourth paragraph, and only when an essay has a PDF.
+   Scoping it to :last-child would catch the description of any entry that
+   has no PDF and render it as a chip line. */
+.entry p:nth-child(4){
+  margin-top:.5rem;
+  font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+}
+.entry p:nth-child(4) a{
+  display:inline-block; padding:.14rem .5rem; background:var(--chip);
+  color:var(--muted); border-radius:2px; text-decoration:none;
+}
+.entry p:nth-child(4) a:hover{color:var(--fg)}
+
 /* --- long-form essay -----------------------------------------------------
    The one place on the site with sustained prose rather than lists. Section
    headings here are sentence-case serif, not the small uppercase labels used

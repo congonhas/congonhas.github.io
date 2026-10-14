@@ -11,11 +11,6 @@ I work on labor economics, and specifically on how human capital is formed over 
 life cycle: what parents believe about their children's development, how they form these beliefs, 
 how those beliefs shape investment, and what early interventions actually change.
 
-::: {.strip}
-[Flavio.Cunha@rice.edu](mailto:Flavio.Cunha@rice.edu)[·]{.sep}Kraft Hall 407\
-[CV (PDF)](cv.pdf)[·]{.sep}[Google Scholar](https://scholar.google.com/citations?user=M9MsticAAAAJ)[·]{.sep}[NBER](https://www.nber.org/people/flavio_cunha)[·]{.sep}[RePEc](https://ideas.repec.org/e/pcu47.html)
-:::
-
 <!--
 The homepage deliberately ends here. Research lives behind the Research tab.
 

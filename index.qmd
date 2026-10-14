@@ -8,8 +8,8 @@ Department of Economics and direct the Center for Economic Mobility at the Kinde
 Institute for Urban Research.
 
 I work on labor economics, and specifically on how human capital is formed over the
-life cycle: what parents believe about their children's development, how they form these beliefs, how those
-beliefs shape investment, and what early interventions actually change.
+life cycle: what parents believe about their children's development, how they form these beliefs, 
+how those beliefs shape investment, and what early interventions actually change.
 
 ::: {.strip}
 [Flavio.Cunha@rice.edu](mailto:Flavio.Cunha@rice.edu)[·]{.sep}Kraft Hall 407\

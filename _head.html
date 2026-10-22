@@ -27,17 +27,28 @@
         async src="//gc.zgo.at/count.js"></script>
 
 <script>
-/* Paper-link events.
+/* Paper and essay link events.
 
    The script above counts page views. A PDF cannot run a script, and a DOI or
    NBER link leaves the site entirely, so the thing you most want to know, which
    papers people actually open, would otherwise be invisible.
 
-   This records one event per paper link, labelled with the paper's own title,
-   so the dashboard reads as a list of papers rather than a list of URLs. It
-   fires for the title link and for the PDF, Journal and NBER badges alike,
+   This records one event per link, labelled with the title of the thing being
+   opened, so the dashboard reads as a list of work rather than a list of URLs.
+   It fires for the title link and for the PDF, Journal and NBER badges alike,
    since all three mean the same thing: someone went to read it. BibTeX
-   downloads are not counted. */
+   downloads are not counted.
+
+   Note that these events are stored in the same path field as page views, so
+   they appear in the dashboard alongside real pages, prefixed. A row reading
+   "pdf: ..." or "essay: ..." is an event, not a page that exists.
+
+   Three sources of a label, in order:
+     .paper   a paper on the research page; title is the .t heading
+     .entry   an essay in the Center listing; title is the first link
+     .essay-meta  the Download as PDF link in an essay byline, where the
+                  title is the page's own h2.sec heading
+   Anything else, the CV link in the nav above all, keeps its filename. */
 document.addEventListener('click', function (ev) {
   var a = ev.target && ev.target.closest && ev.target.closest('a[href]');
   if (!a) return;
@@ -48,12 +59,26 @@ document.addEventListener('click', function (ev) {
   var isPaperLink = isPdf || /doi\.org|nber\.org\/papers/i.test(href);
   if (!isPaperLink) return;
 
-  var entry = a.closest('.paper');
-  var heading = entry && entry.querySelector('.t');
-  var label = heading ? heading.textContent.trim() : href;
+  var container = a.closest('.paper, .entry');
+  var isEssay = false;
+  var label;
+
+  if (container) {
+    isEssay = container.classList.contains('entry');
+    var heading = container.querySelector('.t') || container.querySelector('a');
+    label = heading ? heading.textContent.trim() : href;
+  } else if (a.closest('.essay-meta')) {
+    isEssay = true;
+    var pageHeading = document.querySelector('h2.sec');
+    label = pageHeading ? pageHeading.textContent.trim() : href;
+  } else {
+    label = href;
+  }
+
+  var prefix = isEssay ? 'essay: ' : (isPdf ? 'pdf: ' : 'link: ');
 
   window.goatcounter.count({
-    path:  (isPdf ? 'pdf: ' : 'link: ') + label.slice(0, 120),
+    path:  prefix + label.slice(0, 120),
     title: href,
     event: true
   });
